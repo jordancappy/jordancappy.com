@@ -1,0 +1,74 @@
+button.btn 
+  border 4px solid black
+  z-index 100
+  background red
+  text-transform uppercase
+  color white
+  font-size x-large
+  text-shadow 1px 1px 0px black
+  transform rotateX(20deg) rotateY(-10deg)
+  box-shadow 4px 4px 0px 0px black
+  
+.home
+  .cards,.surprise
+    position absolute
+    display flex
+    justify-content center
+    flex-wrap wrap
+    width 100%
+    .card
+      //animation-fill-mode forwards
+      for i in (1..4)
+        &:nth-child({i})
+          //animation cardflip 5s linear, (smash- + i) .1s 5s linear forwards, dissapear .1s 5s forwards
+  .surprise
+    &__triangle
+      width 0
+      height 0
+      bottom 55%
+      border-left 15px solid transparent
+      border-right 45px solid transparent
+      border-top 250px solid white
+      transform-origin bottom
+
+      &:first-of-type
+        transform rotate(-15deg)
+        animation-delay 5.5s, 6s
+        animation surprise-1 .4s linear forwards, dissapear .1s forwards
+      &:nth-of-type(2)
+        border-top 350px solid white
+        animation surprise .4s linear forwards, dissapear .1s forwards
+        animation-delay 5.5s, 6s
+      &:last-of-type
+        transform rotate(15deg)
+        animation-delay 5.5s, 6s
+        animation surprise-2 .4s linear forwards, dissapear .1s forwards
+
+@keyframes smash-1
+  100%
+    transform translate(150%,50%)
+@keyframes smash-2
+  100%
+    transform translate(50%,50%)
+@keyframes smash-3
+  100%
+    transform translate(-50%,50%)
+@keyframes smash-4  
+  100%
+    transform translate(-150%,50%)
+
+@keyframes dissapear
+  100%
+    opacity 0
+
+@keyframes surprise
+  100%
+    transform translate(0, -30px)
+ @keyframes surprise-1
+  100%
+    transform rotate(-15deg) translate(0, -20px) 
+@keyframes surprise-2
+  100%
+    transform rotate(15deg) translate(0, -20px)
+
+    

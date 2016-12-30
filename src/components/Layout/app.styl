@@ -1,0 +1,20 @@
+.wipe-enter
+  //opacity 0.01
+  transition: all .5s ease-in
+
+
+.wipe-enter.wipe-enter-active 
+  //opacity 1
+
+
+.wipe-leave 
+  transition transform .3s ease-in
+  transform translate(100%,100%) rotate(10deg) skew(-25deg)
+  &:before
+    content ''
+    transition turnedpage .3s ease-in    
+
+.wipe-leave.wipe-leave-active 
+  //opacity 0;
+
+

@@ -1,0 +1,108 @@
+$padding = 8px
+$cray-blue = #0bffff
+$persona-red = #c90000
+
+body, html, #root
+  margin 0
+  height 100%
+  width 100%
+  font-family: arial
+.container
+  perspective 1000px
+  perspective-origin center
+  align-items center
+  //display flex
+  //flex-direction row
+  //background #f00
+  height 100%
+  &__col
+    height 100%
+     
+a, button
+  transition .2s ease-in
+  &:hover,&:active
+    background $cray-blue !important
+    text-shadow #000 1px 1px 1px
+    color #fff
+    
+.content
+  display flex
+  position fixed
+  flex-direction row
+  align-items center
+  width 100%
+  height 100%
+  text-align center
+  &__container
+    display flex
+    flex-direction column
+    align-items center
+    width 100%
+  &__title-close:before
+    content 'X'
+    position absolute
+    right 0
+    top 0
+    color #fff
+    background #000
+    padding-left $padding
+    padding-right $padding
+  &__title:before
+    content ''
+    border solid #000 4px
+    transform skew(3deg)
+    position absolute
+    top 0
+    left -4px
+    right -4px
+    bottom 0
+    background #fff
+    margin -4px
+    z-index -1
+  &__title, &__description *
+    background #fff
+    color #000
+    text-transform uppercase
+    position relative
+    display inline-block
+    margin $padding * 2
+    z-index 1
+  &__description
+    max-width 75%
+  &__description *
+    display block
+    text-transform lowercase
+    max-width 100%
+    white-space pre-line
+    word-break break-word
+    padding 15px 35px 15px 35px
+    border solid 5px #000
+    margin 0 
+    transform translate(-2%) skew(-10deg)
+    z-index 1
+    &:not(:first-child)
+      transform translate(-2%,-20%) skew(10deg)
+    &:nth-child(2n)
+      color #fff
+      background #000
+      padding-top 3%
+      transform translate(2%,-12%) skew(-10deg)
+      z-index 0
+      &:not(:last-child)
+        padding-bottom 5%
+  &__title h1
+    display inline
+    
+svg.background
+  position absolute
+  top 0
+  height 100%
+  width 100%
+  background $persona-red//#3b1260//#2e0e4b//darkslateblue
+  z-index -1
+  box-shadow 0px 0px 0px 8px rgba(0,0,0,0.75)
+  background #1e5799; /* Old browsers */
+  background -moz-linear-gradient(top, #1e5799 0%, #c90000 1%, #c70000 100%); /* FF3.6-15 */
+  background -webkit-linear-gradient(top, #1e5799 0%,#c90000 1%,#c70000 100%); /* Chrome10-25,Safari5.1-6 */
+  background linear-gradient(to bottom, #1e5799 0%,#c90000 1%,#c70000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  //filter progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#c70000',GradientType=0 )

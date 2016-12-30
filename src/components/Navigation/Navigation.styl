@@ -1,0 +1,82 @@
+$padding = 8px
+$barHeight = 10px
+$barWidth = 50px
+$barPadding = 4px
+.nav
+  position fixed
+  top 0
+  left 0
+  margin $padding * 4
+  max-width 550px
+  color #fff
+  transform rotateY(20deg)
+  transform-origin left
+  z-index 10
+  &--closed
+    .menu__item
+      opacity 0
+      transform translate(0,150%) rotate(-4deg)
+      visibility hidden
+      &:nth-of-type(2n)
+        transform translate(0,200%) rotate(5deg)
+  &--open
+    .menu__item
+      opacity 1
+      visibility visible
+      
+  &__hamburger
+    width $barWidth
+    height ($barHeight * 3) + ($barPadding * 3)
+    *
+      display block
+      position absolute
+      //border 1px solid #000
+      box-shadow 0px 0px 0px 1px rgba(0,0,0,0.75)
+      background #fff
+      height $barHeight
+      box-sizing border-box
+      width $barWidth
+      transition top .2s ease-in-out, transform .1s ease-in, background .2s ease-in
+    span:nth-child(1)
+      top 0
+    span:nth-child(2),span:nth-child(3)
+      top $barHeight + $barPadding
+    span:nth-child(4)
+      top ($barHeight + $barPadding) * 2
+    &:hover *
+      border 1px solid #fff
+      background #f00
+  &--open &__hamburger
+    span:nth-child(1),span:nth-child(4)
+      border none
+      box-shadow none
+      left ($barWidth / 2)
+      top $barHeight + $barPadding
+      width 0 
+    span:nth-child(2)
+      transform rotate(45deg)
+    span:nth-child(3)
+      transform rotate(-45deg)
+    
+.menu 
+  margin-top -45px
+  margin-left 10px
+  &__item
+    background #000
+    list-style none
+    display inline-block
+    transition .3s all ease
+    a
+      text-decoration none
+      color #fff
+    h1
+      padding-left $padding
+      text-transform uppercase
+      font-size 36px
+      &:first-letter
+        background #fff
+        font-size 34px
+        color #f00
+    &--active
+      background #0bffff
+      text-shadow black 1px 1px 1px

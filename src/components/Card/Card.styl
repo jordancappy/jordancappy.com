@@ -1,0 +1,41 @@
+suits = spades 'http://imgh.us/spade_1.svg', hearts 'http://imgh.us/heart_22.svg', clubs 'http://imgh.us/clubs.svg', diamonds 'http://imgh.us/diamond_7.svg'
+$back = 'http://imgh.us/back_11.svg'
+.card
+  transform-style preserve-3d
+  transform-origin center
+  animation cardflip 10s linear infinite
+  
+  for suit in suits
+    &--{suit[0]}
+      .card__face
+        
+        background url(suit[1]) center no-repeat
+        background-size contain 
+        background-color #fff
+.card__face,.card__back
+  height 280px
+  box-shadow 4px 4px 0px 1px #000
+  width 200px
+  border-radius 3px
+  backface-visibility hidden
+  
+.card__back
+  box-shadow -4px 4px 0px 1px #000
+  backface-visibility hidden
+  position absolute
+  top 0
+  border solid 4px #fff
+  background-color #fff
+  //box-shadow 9px 9px 0px 0px black,0px 0px 0px 16px red
+  background url($back) center no-repeat
+  background-size contain 
+  transform rotateY(180deg)
+  
+
+@keyframes cardflip
+  0% 
+    transform rotate(45deg)
+  50%
+    transform rotate(-45deg) rotateY(180deg)
+  100%
+    transform rotate(45deg) 

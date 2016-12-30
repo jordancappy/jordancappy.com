@@ -1,0 +1,23 @@
+$lineWidth = 3px
+$rotation = 15deg
+.contact 
+  svg.background
+    background white
+    animation color-change 30s linear alternate infinite
+    
+#spiral
+  animation rotate 5s linear infinite
+  transform-origin center
+
+@keyframes color-change
+  from 
+    background #fff
+  to
+    background darkred
+
+
+@keyframes rotate
+  from
+    transform rotate(0)
+  to
+    transform rotate(-360deg)

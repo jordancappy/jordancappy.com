@@ -1,0 +1,19 @@
+$degree = 48
+.wave 
+  fill none
+  transform-origin center
+  for i in 1..10
+    &:nth-child({i})
+      animation-name wave
+      animation-duration 20s
+      animation-iteration-count infinite
+      animation-delay (2 * -(i - 1))s
+
+@keyframes wave
+  from
+    transform scale(0) 
+    stroke-width 1px
+    stroke #000
+  to
+    transform scale(300) 
+    stroke-width .2px
