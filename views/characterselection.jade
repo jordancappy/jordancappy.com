@@ -1,0 +1,31 @@
+extends layout
+
+block scripts
+  script(src='/javascripts/characterselection.js')
+
+block styles
+  link(rel='stylesheet', href='/stylesheets/characterselection.css')
+
+block content
+  - var characters = ['spider-man', 'wolverine', 'captain-america'];
+  form.character-selection
+    input(type='submit',hidden)
+    .character-selection__header
+      h1 choose character 
+        small (&uarr;&darr; to change)
+
+    - for (var i=0; i < characters.length; i++)
+      .character-selection__character
+        label
+          input(type='radio',name="character",class='character-selection__character__input',value=characters[i],autofocus,checked=i==0)
+          span
+          h1=characters[i]
+  
+  img#captain-america(src='images/captain america.png')  
+  img#spider-man(src='images/spider-man.png')
+  img#wolverine(src='images/wolverine.png')
+
+  #animation
+    .--1
+    .--2
+    .--3  

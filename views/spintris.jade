@@ -1,0 +1,18 @@
+extends layout
+
+block scripts
+  //script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js')
+  script(src='javascripts/bundle.js')
+  //script(src='javascripts/spintris.js')
+
+block styles
+  link(rel='stylesheet', href='stylesheets/spintris.css')
+
+block content
+  #left-control
+  #right-control
+  .score-board
+    div score: 
+      span#score
+    div level: 
+      span#level 

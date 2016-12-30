@@ -1,0 +1,169 @@
+captainblue = #5785f4
+wolverineyellow = #f4cb57
+spidermanred = #f45757
+
+html, body
+  height 100%
+body
+  perspective 500px
+  perspective-origin center
+  display flex
+  flex-direction column
+  justify-content center
+  &.submit
+    img
+      filter drop-shadow(rgb(255, 255, 255) 18px 20px 0px)
+  &.gotme
+    img 
+      transition 4s all cubic-bezier(0.04, -0.99, 0.89, 1.65)
+      transform scale(25)
+.wolverine
+  background wolverineyellow
+  img#wolverine
+    display block
+.spider-man 
+  background spidermanred
+  img#spider-man
+    display block
+.captain-america
+  background captainblue
+  img#captain-america
+    display block
+  
+img 
+  -webkit-filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
+  filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
+  position absolute
+  display none  
+  right 0
+h1
+  text-transform uppercase  
+.character-selection
+  background #000
+  border 1px solid
+  width 30%
+  min-width 300px
+  transform rotateY(10deg)
+  margin-left 12%
+  border: solid white 10px;
+  /* -webkit-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1); */
+  -moz-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
+  box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
+  //transform skew(4deg)
+  
+  &__header 
+    color #000
+    background #fff
+    border 2px solid #000
+    transform skew(0, 2deg)
+    text-align center
+    position fixed
+    top -75px
+    left -25%
+    min-width 145%
+    
+input:checked 
+  & + span:before
+    content ''
+    background red
+    height 48px
+    width 110%
+    left 0
+    transform skew(-3deg, 2deg)
+    animation giggle .8s infinite
+    position absolute
+  
+@-webkit-keyframes giggle 
+  0% 
+    transform skew(0,-1deg)
+  25% 
+    transform skew(-2deg)
+  50% 
+    transform skew(-3deg)
+  75%  
+    transform skew(1deg)
+  
+.character-selection
+  &__character
+    position relative
+    margin-bottom 34px
+    color white
+    h1
+      position absolute
+      top -10px
+      text-align center
+      width 100%
+    &__input:before
+      content ''
+      background #000
+      height 20px
+      width 20px
+      position fixed
+      left 0
+      
+@media (max-width:1024px)
+  img
+    width 100%
+  .character-selection
+    z-index 1
+    
+@media (max-width: 736px)
+  body
+    justify-content flex-end
+  img
+    top 0
+    
+.submit
+  #animation div
+    border-bottom 200px solid #000
+    border-left 22px solid transparent
+    border-right 26px solid transparent
+    height 0
+    width 37px
+    display block
+    z-index 1
+    &.--1
+      animation slide .3s infinite
+      position absolute
+      top 10%
+      left 40%
+      @media (max-width: 1024px)
+        left 5%
+    &.--2
+      animation slide-2 .3s infinite
+      position absolute
+      top 25%
+      right 10% 
+    &.--3
+      animation slide-3 .3s infinite
+      position absolute
+      bottom 10%
+      left 55%
+      @media (max-width: 1024px)
+        left 30%
+    &:before
+      content ''
+      display block
+      transform translateY(6px)
+      border-bottom 185px solid #fff
+      border-left 6px solid transparent
+      border-right 36px solid transparent
+      height 0
+      width 30px
+      
+@keyframes slide
+  from
+    transform translateY(0px) rotate(130deg)
+  to
+    transform translateY(10px) translateX(10px) rotate(130deg)
+    
+@keyframes slide-2
+  from
+    transform translateY(0px) rotate(250deg)
+  to
+    transform translateY(10px) translateX(-10px) rotate(250deg) 
+@keyframes slide-3
+  from
+    transform translateY(0px) rotate(20deg)
+  to
+    transform translateY(-10px) translateX(0px) rotate(20deg)  
