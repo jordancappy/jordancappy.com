@@ -2,14 +2,7 @@ captainblue = #5785f4
 wolverineyellow = #f4cb57
 spidermanred = #f45757
 
-html, body
-  height 100%
 body
-  perspective 500px
-  perspective-origin center
-  display flex
-  flex-direction column
-  justify-content center
   &.submit
     img
       filter drop-shadow(rgb(255, 255, 255) 18px 20px 0px)
@@ -17,6 +10,7 @@ body
     img 
       transition 4s all cubic-bezier(0.04, -0.99, 0.89, 1.65)
       transform scale(25)
+      
 .wolverine
   background wolverineyellow
   img#wolverine
@@ -29,50 +23,35 @@ body
   background captainblue
   img#captain-america
     display block
-  
-img 
-  -webkit-filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
-  filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
-  position absolute
-  display none  
-  right 0
-h1
-  text-transform uppercase  
-.character-selection
-  background #000
-  border 1px solid
-  width 30%
-  min-width 300px
-  transform rotateY(10deg)
-  margin-left 12%
-  border: solid white 10px;
-  /* -webkit-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1); */
-  -moz-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
-  box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
-  //transform skew(4deg)
-  
-  &__header 
-    color #000
-    background #fff
-    border 2px solid #000
-    transform skew(0, 2deg)
-    text-align center
-    position fixed
-    top -75px
-    left -25%
-    min-width 145%
-    
-input:checked 
-  & + span:before
-    content ''
-    background red
-    height 48px
-    width 110%
-    left 0
-    transform skew(-3deg, 2deg)
-    animation giggle .8s infinite
+
+.charselection
+  font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  perspective 500px
+  perspective-origin center
+  display flex
+  flex-direction column
+  justify-content center
+  img 
+    -webkit-filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
+    filter contrast(0%) brightness(50%) drop-shadow(rgb(255, 255, 255) 18px 20px 0px) 
     position absolute
-  
+    display none  
+    right 0
+  h1
+    text-transform uppercase  
+  input[type=radio]:before
+    content ''
+  input:checked 
+    & + span:before
+      content ''
+      background red
+      height 48px
+      width 110%
+      left 0
+      transform skew(-3deg, 2deg)
+      animation giggle .8s infinite
+      position absolute
+
 @-webkit-keyframes giggle 
   0% 
     transform skew(0,-1deg)
@@ -83,7 +62,19 @@ input:checked
   75%  
     transform skew(1deg)
   
+    
 .character-selection
+  background #000
+  border 1px solid
+  width 30%
+  min-width 300px
+  transform rotateY(10deg)
+  margin-left -20%
+  border: solid white 10px;
+  /* -webkit-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1); */
+  -moz-box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
+  box-shadow: 0px 0px 0px 8px rgba(0,0,0,1);
+  //transform skew(4deg)
   &__character
     position relative
     margin-bottom 34px
@@ -93,19 +84,32 @@ input:checked
       top -10px
       text-align center
       width 100%
-    &__input:before
-      content ''
-      background #000
-      height 20px
-      width 20px
-      position fixed
-      left 0
+    &__input
+      //display block
+      &:before
+        content ''
+        background #000
+        height 20px
+        width 100%
+        position fixed
+        left 0
+  &__header 
+    color #000
+    background #fff
+    border 2px solid #000
+    transform skew(0, 2deg)
+    text-align center
+    position fixed
+    top -75px
+    left -25%
+    min-width 145%
+    z-index 1
       
 @media (max-width:1024px)
   img
     width 100%
   .character-selection
-    z-index 1
+    z-index 50
     
 @media (max-width: 736px)
   body
@@ -121,7 +125,7 @@ input:checked
     height 0
     width 37px
     display block
-    z-index 1
+    z-index 100
     &.--1
       animation slide .3s infinite
       position absolute
@@ -150,6 +154,8 @@ input:checked
       border-right 36px solid transparent
       height 0
       width 30px
+  img
+    filter drop-shadow(rgb(255, 255, 255) 18px 20px 0px)
       
 @keyframes slide
   from
@@ -167,3 +173,4 @@ input:checked
     transform translateY(0px) rotate(20deg)
   to
     transform translateY(-10px) translateX(0px) rotate(20deg)  
+    

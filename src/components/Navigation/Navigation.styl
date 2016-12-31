@@ -13,6 +13,10 @@ $barPadding = 4px
   transform-origin left
   z-index 10
   &--closed
+    height ($barHeight * 3) + ($barPadding * 3)
+    width $barWidth
+    .menu
+      pointer-events none
     .menu__item
       opacity 0
       transform translate(0,150%) rotate(-4deg)

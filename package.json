@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "dev": "nodemon server.js",
+    "build": "NODE_ENV=production webpack -p --config ./webpack.production.config.js",
     "prod": "NODE_ENV=production forever start --minUptime 1000 --spinSleepTime 1000 server.js",
     "stop": "forever stop server.js"
   },

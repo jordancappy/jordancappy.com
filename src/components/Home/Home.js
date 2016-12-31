@@ -36,7 +36,7 @@ export default class Home extends Component {
             <svg><path d="m 195.61268,433.28941 -42.25647,-189.44975 87.33,-18.31114 -18.31111,199.30961 z" /></svg>            
             */}
           </div>
-        <svg className="background" >
+        <svg className="background">
    
          <path className="card" /> 
             <button className="btn">
