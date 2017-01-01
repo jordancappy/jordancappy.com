@@ -6,7 +6,7 @@ var isProduction = !!process.env.PROD_DEV;
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: isProduction  ? 
-    ['./src/index']
+    ['babel-polyfill','./src/index']
     :
     [
       'webpack-hot-middleware/client',
@@ -20,8 +20,12 @@ module.exports = {
   },
   plugins: isProduction ? 
     [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({minimize: true}),
+      new webpack.optimize.OccurenceOrderPlugin()
       new webpack.optimize.AggressiveMergingPlugin()
     ]
     :
